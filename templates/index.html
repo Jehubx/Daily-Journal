@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>King's Day Application</title>
+</head>
+
+<body>
+    
+    <div class="container  bg-info p-5">
+        <img src="../static/logo.png" alt="" class="img-fluid rounded mx-auto d-block" style="height: 300px;"/>
+        <h1 class="text-dark text-center">Daily Experience Journal</h1>
+    </div>
+    <div class="container">
+        <!--<img src="../static/logo.png" alt="Lexus" class="logo" -->
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <h4>Schrijf een titel?</h4>
+                <input class="form-control" type="text" name="name" placeholder="Schrijf iets over je dag" />
+            </div>
+            <div class="form-group">
+                <h4>Dag</h4>
+                <select class="form-control" name="weekday">
+                    <option value="">Selecteer een dag</option>
+                    <option value="Maanday">Maanday</option>
+                    <option value="Dinsdag">Dinsdag</option>
+                    <option value="Woensdag">Woensdag</option>
+                    <option value="Donderdag">Donderdag</option>
+                    <option value="Vrijdag">Vrijdag</option>
+                    <option value="Zaterdag">Zaterdag</option>
+                    <option value="Zondag">Zondag</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <!-- <h3>Please rate your day</h3> -->
+                <h3>Geef je dag een cijfer</h3>
+                1 <input class="form-check-input me-3" type="radio" name="rating" value="1" /> 
+                2 <input class="form-check-input me-3" type="radio" name="rating" value="2" /> 
+                3 <input class="form-check-input me-3" type="radio" name="rating" value="3" /> 
+                4 <input class="form-check-input me-3" type="radio" name="rating" value="4" /> 
+                5 <input class="form-check-input me-3" type="radio" name="rating" value="5" /> 
+                6 <input class="form-check-input me-3" type="radio" name="rating" value="6" /> 
+                7 <input class="form-check-input me-3" type="radio" name="rating" value="7" /> 
+                8 <input class="form-check-input me-3" type="radio" name="rating" value="8" /> 
+                9 <input class="form-check-input me-3" type="radio" name="rating" value="9" /> 
+                10<input class="form-check-input" type="radio" name="rating" value="10" checked />
+            </div>
+            <div class="form-group">
+                <!-- <h4>Comments about your experience</h4> -->
+                <h4>Schrijf wat je vandaag hebt gedaan?</h4>
+                <textarea class="form-control" name="comments" id="" cols="30" rows="10"
+                    placeholder="Hoe was je dag? Schrijf maar wat over je dag!"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-info form-control" />
+        </form>
+    </div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+</html>
